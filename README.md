@@ -1,7 +1,13 @@
 # stock-analysis
-Module 2 VBA Homework
-#Analysis
-##Sub AllStocksAnalysisRefactored()
+
+## Oveview of Project
+###
+The purpose of this analysis was to help Steve’s parents decide which stock to invest in and which stock to not invest in from the years 2017 and 2018. It was also to refactor the code so it could become for efficient and run faster. 
+## Analysis
+###
+The refactored code was extremely quick as it ran in .15625 seconds for 2017 and .1796875 amount of seconds for 201. The refactored code ran around a full second faster! In 2017, the stocks had a more favorable return rate, with only 1 losing money. In 2018, the stock were all losing money, with only 2 having a positive rate of return. 
+###
+Sub AllStocksAnalysisRefactored()
     Dim startTime As Single
     Dim endTime  As Single
 
@@ -62,6 +68,10 @@ Module 2 VBA Homework
             
         tickerVolumes(i) = 0
         
+        'tickerStartingPrices(i) = 0
+        
+        'tickerEndingPrices(i) = 0
+        
     Next i
         
     ''2b) Loop over all the rows in the spreadsheet.
@@ -76,7 +86,7 @@ Module 2 VBA Homework
         '3b) Check if the current row is the first row with the selected tickerIndex.
     
             
-        If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i - 1, 1).Value <> tickers(tickerIndex) Then
+        If Cells(i - 1, 1).Value <> tickers(tickerIndex) Then
         
          
          'If  it is then the current price is assined to the tickerStartingPrices variable
@@ -90,7 +100,7 @@ Module 2 VBA Homework
          
          'If the next row’s ticker doesn’t match, increase the tickerIndex.
             
-        If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i + 1, 1).Value <> tickers(tickerIndex) Then
+        If Cells(i + 1, 1).Value <> tickers(tickerIndex) Then
         
             'If  Then
             
@@ -114,11 +124,15 @@ Module 2 VBA Homework
         
         Worksheets("All Stocks Analysis").Activate
 
-        Cells(i + 4, 1).Value = tickers(i)
-            
-        Cells(i + 4, 2).Value = tickerVolumes(i)
         
-        Cells(i + 4, 3).Value = tickerEndingPrices(i) / tickerStartingPrices(i) - 1
+        'Inputs ticker name
+        Cells(4 + i, 1).Value = tickers(i)
+            
+        'Inputs daily volume value
+        Cells(4 + i, 2).Value = tickerVolumes(i)
+        
+        'Inputs percentage of return value
+        Cells(4 + i, 3).Value = tickerEndingPrices(i) / tickerStartingPrices(i) - 1
     
         
     Next i
@@ -151,4 +165,10 @@ Module 2 VBA Homework
     endTime = Timer
     MsgBox "This code ran in " & (endTime - startTime) & " seconds for the year " & (yearValue)
 
-End Sub
+    End Sub
+
+## Summary
+###
+Refactoring the code helps it become easier to read, takes less memory, and takes fewer steps. Since the initial code is usually not the most efficient, refactor helps clean up the previous code. Due to the code being cleaner, it is easier to catch bugs in the code. Refactoring a code can pose problems if the first code was not well written. This means it could take more time to refactor a code than re write it. 
+###
+Compared to the original VBA script, the code ran much faster and is much easier to read. The refactored code ran in .15625 seconds for 2017 and .1796875 amount of seconds for 2018 (see images below), while the original code to 1.179668 seconds to run for 2018 and 1.2130928 for 2017. The only con was being new to refactoring codes, refactoring was slightly time consuming. 

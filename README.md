@@ -172,5 +172,9 @@ Sub AllStocksAnalysisRefactored()
 Refactoring the code helps it become easier to read, takes less memory, and takes fewer steps. Since the initial code is usually not the most efficient, refactor helps clean up the previous code. Due to the code being cleaner, it is easier to catch bugs in the code. Refactoring a code can pose problems if the first code was not well written. This means it could take more time to refactor a code than re write it. 
 ###
 Compared to the original VBA script, the code ran much faster and is much easier to read. The refactored code ran in .15625 seconds for 2017 and .1796875 amount of seconds for 2018 (see images below), while the original code to 1.179668 seconds to run for 2018 and 1.2130928 for 2017. The only con was being new to refactoring codes, refactoring was slightly time consuming. 
+
+
 <img width="233" alt="VBA_Challenge_2017" src="https://user-images.githubusercontent.com/110864175/186562286-75740e98-ad33-4974-8c34-54e3eca5cad9.png">
+
+
 <img width="230" alt="VBA_Challenge_2018" src="https://user-images.githubusercontent.com/110864175/186562327-7adcdea2-c2a9-4d5e-beaf-b14f8d1fee74.png">
